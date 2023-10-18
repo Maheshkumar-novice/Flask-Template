@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+
+{% set action_url = url_for('auth.signin') %}
+{% set signup_url = url_for('auth.signup') %}
+{% set google_signin_url = url_for('auth.signin_with_google') %}
+{% set forgot_password_url = url_for('auth.forgot_password') %}
+{% set legend = 'Sign In' %}
+{% set button_value = 'Sign In' %}
+
+{% block content %}  
+    {% include "_common_navbar.html" %}
+
+    {{macros.render_generic_form(form, action_url, legend, button_value)}}
+
+    <div class="container has-text-centered">
+        <a href="{{forgot_password_url}}">Forgot Password?</a>
+    </div>
+    <br>
+    <div class="container has-text-centered">
+        <button class="button">
+            <a href="{{google_signin_url}}">Sign In With Google</a>
+        </button>
+    </div>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% set signout_url = url_for('auth.signout') %}
+
+{% block content %}  
+    {% include "_common_navbar.html" %}
+
+    Welcome Home, {{name}}
+
+    <a href="{{signout_url}}">Sign Out</a>
+{% endblock content %}

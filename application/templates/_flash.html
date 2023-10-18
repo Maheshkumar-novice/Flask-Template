@@ -1,0 +1,17 @@
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            {% if category == 'error' %} 
+                {% set type_modifier = 'is-danger' %} 
+            {% elif category == 'success' %}
+                {% set type_modifier = 'is-success' %}
+            {% elif category == 'info' %} 
+                {% set type_modifier = 'is-info' %} 
+            {% endif %} 
+            <div class="notification {{type_modifier}} is-light">
+                <button class="delete"></button>
+                <p class="flash-message">{{message}}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}

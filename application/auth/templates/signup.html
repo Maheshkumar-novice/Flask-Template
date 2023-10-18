@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+
+{% set action_url = url_for('auth.signup') %}
+{% set signin_url = url_for('auth.signin') %}
+{% set google_signin_url = url_for('auth.signin_with_google') %}
+{% set legend = 'Sign Up' %}
+{% set button_value = 'Sign Up' %}
+
+{% block content %}  
+    {% include "_common_navbar.html" %}
+
+    {{macros.render_generic_form(form, action_url, legend, button_value)}}
+
+    <div class="container has-text-centered">
+        <button class="button">
+            <a href="{{google_signin_url}}">Sign In With Google</a>
+        </button>
+    </div>
+{% endblock content %}
